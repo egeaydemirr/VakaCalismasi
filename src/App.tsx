@@ -1,30 +1,26 @@
 import { NavigationContainer } from '@react-navigation/native';
 import React from 'react';
 import LoginScreen from './screens/LoginScreen';
-import MainScreen from './screens/MainScreen';
-import ProductsScreen from './screens/ProductsScreen';
-import { createDrawerNavigator } from '@react-navigation/drawer';
+import IntroScreen from './screens/IntroScreen';
+import { createNativeStackNavigator } from '@react-navigation/native-stack';
+import DrawerScreen from './screens/DrawerScreen';
 
-const Drawer = createDrawerNavigator();
+const Stack = createNativeStackNavigator();
 
 export default function App() {
   return (
     <NavigationContainer>
-      <Drawer.Navigator initialRouteName="Logout"
-        screenOptions={{
-          headerTintColor: '#333',
-        }}>
-        <Drawer.Screen name="HomePage" component={MainScreen} />
-        <Drawer.Screen name="Products" component={ProductsScreen} />
-        <Drawer.Screen
-          name="Logout"
-          component={LoginScreen}
+      <Stack.Navigator>
+        <Stack.Screen name="Intro" component={IntroScreen} />
+        <Stack.Screen name="Login" component={LoginScreen} />
+        <Stack.Screen
+          name="Drawer"
+          component={DrawerScreen}
           options={{
             headerShown: false,
           }}
         />
-      </Drawer.Navigator>
+      </Stack.Navigator>
     </NavigationContainer>
   );
 }
-

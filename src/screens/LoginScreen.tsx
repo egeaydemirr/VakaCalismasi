@@ -28,7 +28,7 @@ export default function LoginScreen() {
       Alert.alert('Successful login', 'Redirecting to the main screen');
 
       setTimeout(() => {
-        navigation.navigate('HomePage', { name: name });
+        navigation.navigate('Drawer', { name: name });
       }, 1000);
     } else if (
       name === 'Test2' &&
@@ -42,7 +42,7 @@ export default function LoginScreen() {
 
       Alert.alert('Successful login', 'Redirecting to the main screen');
       setTimeout(() => {
-        navigation.navigate('HomePage', { name: name });
+        navigation.navigate('Drawer', { name: name });
       }, 1000);
     } else {
       setFailedAttempts(failedAttempts + 1);

@@ -1,15 +1,14 @@
 import React from 'react';
-import { useRoute, } from '@react-navigation/native';
 import { View, Text, StyleSheet } from 'react-native';
 
 export default function MainScreen() {
-  const route = useRoute();
-  const { name } = route.params as { name: string };
-
   return (
     <View style={styles.container}>
-      <Text style={styles.title}>Welcome {name}!</Text>
-      <Text style={styles.subtitle}>This is the main screen</Text>
+      <Text style={styles.screenText}>Welcome to the Products App!</Text>
+      <Text style={styles.description}>
+        Explore our wide range of products and find what you need.
+      </Text>
+      <Text style={styles.subText}>Start shopping now!</Text>
     </View>
   );
 }
@@ -17,18 +16,27 @@ export default function MainScreen() {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    justifyContent: 'flex-start',
+    justifyContent: 'center',
     alignItems: 'center',
     padding: 16,
   },
-  title: {
+  screenText: {
     fontSize: 24,
     fontWeight: 'bold',
     marginBottom: 16,
   },
-  subtitle: {
+  image: {
+    width: 200,
+    height: 200,
+    marginBottom: 16,
+  },
+  description: {
+    fontSize: 16,
+    textAlign: 'center',
+    marginBottom: 8,
+  },
+  subText: {
     fontSize: 18,
-    color: '#333',
-    padding: 16,
+    fontWeight: 'bold',
   },
 });
