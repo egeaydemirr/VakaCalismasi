@@ -5,7 +5,7 @@ import { nameAtom } from './LoginScreen';
 
 export default function MainScreen() {
   const [name] = useAtom(nameAtom);
-  console.log(name);
+
 
   return (
     <View style={styles.container}>

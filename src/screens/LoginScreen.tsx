@@ -10,7 +10,6 @@ import {
 import { atom, useAtom } from 'jotai';
 import { useNavigation } from '@react-navigation/native';
 
-
 export const nameAtom = atom<string>('');
 
 export default function LoginScreen() {
@@ -41,7 +40,6 @@ export default function LoginScreen() {
     ) {
       if (failedAttempts >= 2 && securityKey !== '12345') {
         Alert.alert('Invalid security key', 'Please try again');
-        return;
       }
 
       Alert.alert('Successful login', 'Redirecting to the main screen');
