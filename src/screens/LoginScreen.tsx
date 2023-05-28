@@ -7,12 +7,16 @@ import {
   TouchableOpacity,
   Text,
 } from 'react-native';
+import { atom, useAtom } from 'jotai';
 import { useNavigation } from '@react-navigation/native';
+
+
+export const nameAtom = atom<string>('');
 
 export default function LoginScreen() {
   const [username, setUsername] = React.useState('');
   const [password, setPassword] = React.useState('');
-  const [name, setName] = React.useState('');
+  const [name, setName] = useAtom(nameAtom);
   const [securityKey, setSecurityKey] = React.useState('');
   const [securityKeyVisible, setSecurityKeyVisible] = React.useState(false);
   const [failedAttempts, setFailedAttempts] = React.useState(0);
@@ -28,7 +32,7 @@ export default function LoginScreen() {
       Alert.alert('Successful login', 'Redirecting to the main screen');
 
       setTimeout(() => {
-        navigation.navigate('Drawer', { name: name });
+        navigation.navigate('Drawer');
       }, 1000);
     } else if (
       name === 'Test2' &&
@@ -42,7 +46,7 @@ export default function LoginScreen() {
 
       Alert.alert('Successful login', 'Redirecting to the main screen');
       setTimeout(() => {
-        navigation.navigate('Drawer', { name: name });
+        navigation.navigate('Drawer');
       }, 1000);
     } else {
       setFailedAttempts(failedAttempts + 1);

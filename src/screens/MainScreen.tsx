@@ -1,10 +1,16 @@
+import { useAtom } from 'jotai';
 import React from 'react';
 import { View, Text, StyleSheet } from 'react-native';
+import { nameAtom } from './LoginScreen';
 
 export default function MainScreen() {
+  const [name] = useAtom(nameAtom);
+  console.log(name);
+
   return (
     <View style={styles.container}>
-      <Text style={styles.screenText}>Welcome to the Products App!</Text>
+      <Text style={styles.screenTitle}>Hello {name}!</Text>
+      <Text style={styles.screenText}> Welcome to the Products App!</Text>
       <Text style={styles.description}>
         Explore our wide range of products and find what you need.
       </Text>
@@ -22,6 +28,11 @@ const styles = StyleSheet.create({
   },
   screenText: {
     fontSize: 24,
+    fontWeight: 'bold',
+    marginBottom: 16,
+  },
+  screenTitle: {
+    fontSize: 32,
     fontWeight: 'bold',
     marginBottom: 16,
   },
