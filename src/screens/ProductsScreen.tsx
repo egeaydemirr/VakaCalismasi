@@ -38,7 +38,6 @@ export default function ProductsScreen() {
 
     fetchProducts();
   }, []);
-  console.log(isLoading);
 
   const openProductModal = (product: Product) => {
     setSelectedProduct(product);
